@@ -2,12 +2,13 @@ var readlineSync=require('readline-sync');
 const chalk = require('chalk');
 var name=readlineSync.question("What is your name?  ")
 console.log(chalk.green("Welcome  "+name+'!'));
+console.log(" || You can play the game only when your age is 5+ ||")
 var age=readlineSync.question("How old are you?  ")
-var ans=18
+var ans=5
 var flag;
 function quiz(a)
 {  console.log("---------------")
-  if(a<ans)
+  if(a>=ans)
     {console.log("Congratulations, You are eligible for the quiz "+name)
     console.log("Let's start the quiz, If you score 3+, you win or else you will loose !")
     flag=1;
@@ -16,6 +17,7 @@ function quiz(a)
     {
       console.log("You are not eligible "+ name);
       flag=0;
+      
     }
 }
 quiz(age)
@@ -72,15 +74,18 @@ var hs={
   score:4
 }
 if(score>=3)
-{ console.log(chalk.red("Hurray!! You are a marvel fan"));
+{ console.log(chalk.red("Hurray!! You are a marvel fan :)"));
 if(score>hs.score)
 {
   console.log(chalk.yellow("You have beaten "+ hs.name));
+  console.log("Send me the screenshot! I will update the highest score.")
 }
   console.log("---------------")
 }
 else
 { console.log(chalk.red("Sadly you failed"));
+console.log("The highest score is "+ hs.score + ". made by "+ hs.name);
+console.log("Let's play again to beat the highest score:)")
   console.log("---------------")
 }
 }
